@@ -1,0 +1,14 @@
+C:\Users\JB43XG\Programming\CRUDApp.NET.Core\CRUD.Common\bin\Debug\net7.0\CRUD.Common.deps.json
+C:\Users\JB43XG\Programming\CRUDApp.NET.Core\CRUD.Common\bin\Debug\net7.0\CRUD.Common.runtimeconfig.json
+C:\Users\JB43XG\Programming\CRUDApp.NET.Core\CRUD.Common\bin\Debug\net7.0\CRUD.Common.dll
+C:\Users\JB43XG\Programming\CRUDApp.NET.Core\CRUD.Common\bin\Debug\net7.0\CRUD.Common.pdb
+C:\Users\JB43XG\Programming\CRUDApp.NET.Core\CRUD.Common\obj\Debug\net7.0\CRUD.Common.csproj.AssemblyReference.cache
+C:\Users\JB43XG\Programming\CRUDApp.NET.Core\CRUD.Common\obj\Debug\net7.0\CRUD.Common.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\JB43XG\Programming\CRUDApp.NET.Core\CRUD.Common\obj\Debug\net7.0\CRUD.Common.AssemblyInfoInputs.cache
+C:\Users\JB43XG\Programming\CRUDApp.NET.Core\CRUD.Common\obj\Debug\net7.0\CRUD.Common.AssemblyInfo.cs
+C:\Users\JB43XG\Programming\CRUDApp.NET.Core\CRUD.Common\obj\Debug\net7.0\CRUD.Common.csproj.CoreCompileInputs.cache
+C:\Users\JB43XG\Programming\CRUDApp.NET.Core\CRUD.Common\obj\Debug\net7.0\CRUD.Common.dll
+C:\Users\JB43XG\Programming\CRUDApp.NET.Core\CRUD.Common\obj\Debug\net7.0\refint\CRUD.Common.dll
+C:\Users\JB43XG\Programming\CRUDApp.NET.Core\CRUD.Common\obj\Debug\net7.0\CRUD.Common.pdb
+C:\Users\JB43XG\Programming\CRUDApp.NET.Core\CRUD.Common\obj\Debug\net7.0\CRUD.Common.genruntimeconfig.cache
+C:\Users\JB43XG\Programming\CRUDApp.NET.Core\CRUD.Common\obj\Debug\net7.0\ref\CRUD.Common.dll

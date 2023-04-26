@@ -1,0 +1,57 @@
+﻿@using CRUD.Common.DTOs;
+@using System.Text;
+@using System.Text.Json;
+@using CRUD.Web.Blazor.Classes;
+@using System.IdentityModel.Tokens.Jwt;
+@inject HttpClient httpClient
+@inject IJSRuntime jsr
+@inject CustomAuthenticationStateProvider provider
+
+<CascadingAuthenticationState>
+    <Router AppAssembly="@typeof(App).Assembly">
+        <Found Context="routeData">
+            <AuthorizeRouteView RouteData="@routeData" DefaultLayout="@typeof(MainLayout)" />
+            <FocusOnNavigate RouteData="@routeData" Selector="h1" />
+        </Found>
+        <NotFound>
+            <PageTitle>Not found</PageTitle>
+            <LayoutView Layout="@typeof(MainLayout)">
+                <p role="alert">Sorry, there's nothing at this address.</p>
+            </LayoutView>
+        </NotFound>
+    </Router>
+</CascadingAuthenticationState>
+
+@code {
+    [Parameter]
+    public string WindowsUser { get; set; } = null!;
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        await SetAuthenticationState();
+    }
+
+    private async Task SetAuthenticationState()
+    {
+        var reqContent = new StringContent(
+                content: JsonSerializer.Serialize(new AuthenticationRequestDto { UserName = WindowsUser }),
+                encoding: Encoding.UTF8,
+                mediaType: "application/json"
+        );
+        // Add bearer token if necessary
+        var reqMessage = HelperMethods.GenerateRequestMessage("https://localhost:7051/api/Auth/Authenticate", HttpMethod.Post, reqContent);
+
+        using var msg = await httpClient.SendAsync(reqMessage);
+        if (!msg.IsSuccessStatusCode)
+            return;
+
+        var result = await msg.Content.ReadFromJsonAsync<AuthenticationResponseDto>();
+        await jsr.InvokeVoidAsync("localStorage.setItem", "user", $"{WindowsUser};{result?.JwtToken}").ConfigureAwait(false);
+        JwtSecurityToken decodedJwt = new(result?.JwtToken);
+
+        await provider.SetAuthInfo(new UserRoleDto
+        {
+            UserName = WindowsUser,
+            RoleDefinition = decodedJwt.Claims.First(c => c.Type == "role")?.Value
+        });
+    }
+}
